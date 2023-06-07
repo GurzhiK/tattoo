@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'prices',
     'artists',
+    'photos',
     'corsheaders',
     'django_filters',
     'drf_yasg',

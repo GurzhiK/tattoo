@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import Service, Price
-from .serializers import ServiceSerializer, PriceSerializer
+from .models import Service, Category_service
+from .serializers import ServiceSerializer, Category_serviceSerializer
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
@@ -9,10 +9,6 @@ from rest_framework import filters
 class ServiceList(generics.ListAPIView):
     queryset = Service.objects.all()
     serializer_class = ServiceSerializer
-    filter_backends = [filters.OrderingFilter,
-                       DjangoFilterBackend, filters.SearchFilter]
-    ordering_fields = ['name']
-    ordering = ['name']
 
 
 class ServiceDetail(generics.RetrieveAPIView):
@@ -35,31 +31,26 @@ class ServiceDelete(generics.DestroyAPIView):
     serializer_class = ServiceSerializer
 
 
-class PriceList(generics.ListAPIView):
-    queryset = Price.objects.all()
-    serializer_class = PriceSerializer
-    filter_backends = [filters.OrderingFilter,
-                       DjangoFilterBackend, filters.SearchFilter]
-    filterset_fields = ['service']
-    ordering_fields = ['amount']
-    ordering = ['amount']
+class Category_serviceList(generics.ListAPIView):
+    queryset = Category_service.objects.all()
+    serializer_class = Category_serviceSerializer
 
 
-class PriceDetail(generics.RetrieveAPIView):
-    queryset = Price.objects.all()
-    serializer_class = PriceSerializer
+class Category_serviceDetail(generics.RetrieveAPIView):
+    queryset = Category_service.objects.all()
+    serializer_class = Category_serviceSerializer
 
 
-class PriceUpdate(generics.RetrieveUpdateAPIView):
-    queryset = Price.objects.all()
-    serializer_class = PriceSerializer
+class Category_serviceUpdate(generics.RetrieveUpdateAPIView):
+    queryset = Category_service.objects.all()
+    serializer_class = Category_serviceSerializer
 
 
-class PriceCreate(generics.CreateAPIView):
-    queryset = Price.objects.all()
-    serializer_class = PriceSerializer
+class Category_serviceCreate(generics.CreateAPIView):
+    queryset = Category_service.objects.all()
+    serializer_class = Category_serviceSerializer
 
 
-class PriceDelete(generics.DestroyAPIView):
-    queryset = Price.objects.all()
-    serializer_class = PriceSerializer
+class Category_serviceDelete(generics.DestroyAPIView):
+    queryset = Category_service.objects.all()
+    serializer_class = Category_serviceSerializer

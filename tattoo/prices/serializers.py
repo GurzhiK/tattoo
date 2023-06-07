@@ -1,4 +1,4 @@
-from .models import Service, Price
+from .models import Service, Category_service
 from rest_framework import serializers
 
 
@@ -9,8 +9,8 @@ class ServiceSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class PriceSerializer(serializers.ModelSerializer):
+class Category_serviceSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Price
+        model = Category_service
         fields = '__all__'
